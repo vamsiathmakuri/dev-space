@@ -1,0 +1,28 @@
+@import 'variables';
+
+/*
+  include a map in a class
+*/
+@mixin spread-map($map: ()) {
+    @each $key, $value in $map {
+        #{$key}: $value;
+    }
+}
+
+/*
+  Returns a CSS variable property specific to themeing.
+  Accepts an optional fallback, and optional map.
+  - SCSS: color: theme-var($--theme-primary, blue)
+  - CSS:  color: var(--theme-primary, blue)
+  Throws error if the variable not part of the map
+*/
+@function theme-var($key, $fallback: null, $map: $theme-map-light) {
+    @if not map-has-key($map, $key) {
+        @error "key: '#{$key}', is not a key in map: #{$map}";
+    }
+    @if ($fallback) {
+        @return var($key, $fallback);
+    } @else {
+        @return var($key);
+    }
+}

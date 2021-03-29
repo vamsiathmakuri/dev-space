@@ -1,0 +1,42 @@
+@import "/src/@themes/variables";
+@import "/src/@themes/mixins";
+
+@import '../node_modules/quill/dist/quill.core.css';
+@import '../node_modules/quill/dist/quill.bubble.css';
+@import '../node_modules/quill/dist/quill.snow.css';
+
+/* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0;
+    background: theme-var($--theme-background);
+    color: theme-var($--theme-text);
+    font: normal 10px 'Fira Code', monospace, Arial, sans-serif;
+}
+
+@media screen and (min-width: 64em) {
+    ::-webkit-resizer {
+        display: none;
+    }
+
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 8px;
+        border-radius: 20px;
+    }
+
+    ::-webkit-scrollbar-button {
+        display: none;
+    }
+
+    ::-webkit-scrollbar-corner {
+        display: none;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(136, 136, 136, 0.322);
+    }
+
+    ::-webkit-scrollbar-track-piece {
+        background-color: transparent;
+    }
+}

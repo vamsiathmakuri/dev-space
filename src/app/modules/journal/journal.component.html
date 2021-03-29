@@ -1,0 +1,43 @@
+<div class="journal-wrapper">
+    <div class="journal-calendar">
+        <div class="journal-date-navigation" title="Previous" (click)="dateViewChange(-11)">
+            <span class="button">
+                <svg id="Gradient" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><linearGradient id="linear-gradient" gradientUnits="userSpaceOnUse" x1="256" x2="256" y1="432" y2="80"><stop offset="0" stop-color="#12c2e9"/><stop offset=".5" stop-color="#c471ed"/><stop offset="1" stop-color="#f64f59"/></linearGradient><path d="m191.99 432a31.794 31.794 0 0 1 -22.627-9.372l-144.006-144.007a32.04 32.04 0 0 1 0-45.257l144.005-144.007a32 32 0 0 1 45.257 45.257l-89.376 89.377h338.757a32 32 0 0 1 0 64h-338.757l89.376 89.376a32 32 0 0 1 -22.629 54.633zm0-336.007a15.952 15.952 0 0 0 -11.315 4.679l-144 144.006a16.019 16.019 0 0 0 0 22.629l144 144.006a16 16 0 1 0 22.625-22.629l-103.029-103.034a8 8 0 0 1 5.658-13.657h358.071a16 16 0 0 0 0-32h-358.071a8 8 0 0 1 -5.658-13.657l103.029-103.036a15.993 15.993 0 0 0 -11.31-27.307z" fill="url(#linear-gradient)"/></svg>
+            </span>
+        </div>
+        <div class="journal-date-button" 
+            *ngFor="let date of this.DateRange" [class.active]="dateToString(date) === dateToString(SelectedDate)"
+            (click)="SelectedDate = date; applyDate()">
+            <div class="date-view">
+                <span class="day-text">{{ Days[date.getMonth()] }}</span>
+                <span class="date-text">{{ date.getDate() }}</span>
+                <span class="month-text">{{ Months[date.getMonth()] }}</span>
+            </div>
+        </div>
+        <div class="journal-date-navigation" title="Next" (click)="dateViewChange(11)">
+            <span class="button">
+                <svg id="Gradient" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><linearGradient id="linear-gradient" gradientUnits="userSpaceOnUse" x1="256" x2="256" y1="432" y2="80"><stop offset="0" stop-color="#12c2e9"/><stop offset=".5" stop-color="#c471ed"/><stop offset="1" stop-color="#f64f59"/></linearGradient><path d="m320.01 432a31.8 31.8 0 0 1 -22.628-9.372 32.04 32.04 0 0 1 0-45.257l89.376-89.376h-338.758a32 32 0 0 1 0-64h338.757l-89.376-89.377a32 32 0 0 1 45.256-45.257l144.006 144.003a32.04 32.04 0 0 1 0 45.257l-144 144.006a31.8 31.8 0 0 1 -22.633 9.373zm-11.31-20.687a16 16 0 0 0 22.63 0l144-144.006a16.019 16.019 0 0 0 0-22.629l-144-144.007a16 16 0 1 0 -22.63 22.629l103.029 103.034a8 8 0 0 1 -5.658 13.657h-358.071a16 16 0 0 0 0 32h358.07a8 8 0 0 1 5.658 13.657l-103.028 103.036a16.019 16.019 0 0 0 0 22.629z" fill="url(#linear-gradient)"/></svg>
+            </span>
+        </div>
+    </div>
+    <div class="journal-content">
+        <app-text-editor [Data]="EditorText" (OnContentChange)="saveJournal($event)"></app-text-editor>
+    </div>
+    <div class="toolbar">
+        <div class="toolbar-separator"> </div>
+        <div class="toolbar-item">
+            <span class="save-spinner">
+                <ng-container *ngIf="JournalSaveInit">
+                    <div class="loader"></div>
+                    Saving
+                </ng-container>
+                <ng-container *ngIf="!JournalSaveInit">
+                    Saved
+                </ng-container>
+            </span>
+        </div>
+        <div class="toolbar-item" title="Last Modified">
+            {{ JournalData.Modified | date:'MMM d, y, h:mm:ss a' }}
+        </div>
+    </div>
+</div>

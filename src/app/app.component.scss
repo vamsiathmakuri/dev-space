@@ -1,0 +1,66 @@
+@import "../@themes/variables";
+@import "../@themes/mixins";
+
+.main-container {
+    display: flex;
+    height: 100vh;
+
+    .navigation {
+        user-select: none;
+        display: flex;
+        flex-direction: column;
+        width: 55px;
+        margin: 0;
+        padding: 10px 0;
+        background-color: theme-var($--theme-menu-background);
+
+        .seperator {
+            margin-bottom: auto;
+        }
+
+        a {
+            cursor: pointer;
+            z-index: 90;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 7px;
+            padding: 10px 0;
+            -moz-transition: all 0.1s ease-in;
+            -webkit-transition: all 0.1s ease-in;
+            -o-transition: all 0.1s ease-in;
+            transition: all 0.1s ease-in;
+
+            &.nav-items.active {
+                background-color: theme-var($--theme-menu-item-active);
+                border-left: solid 3px theme-var($--theme-menu-item-active-border);
+                padding-right: 2px;
+                border-top-right-radius: 3px;
+                border-bottom-right-radius: 3px;
+
+                border-top-left-radius: 2px;
+                border-bottom-left-radius: 2px;
+            }
+
+            &.nav-items:hover {
+                border-left: solid 3px theme-var($--theme-menu-item-active-border);
+            }
+
+            &.button-items:hover {
+                border-radius: 50%;
+                background-color: theme-var($--theme-menu-item-active);
+                &.theme-toggle {
+                    background-color: theme-var($--theme-toggle);
+                }
+            }
+
+            img {
+                width: 55%;
+            }
+        }
+    }
+    .main-body {
+        width: 100%;
+        padding-left: 10px;
+    }
+}
