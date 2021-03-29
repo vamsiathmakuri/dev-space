@@ -1,109 +1,10 @@
 @import "/src/@themes/variables";
 @import "/src/@themes/mixins";
 
-
 .notes-navigation {
     display: flex;
     height: 100%;
     flex-direction: column;
-}
-
-.select-wrapper {
-    padding: 10px;
-    .custom-select {
-        position: relative;
-        .select-main {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            border-radius: 4px;
-            height: 30px;
-            padding: 0 10px;
-            background-color: theme-var($--theme-dropdown-background);
-            -moz-transition: all 0.1s ease-in;
-            -webkit-transition: all 0.1s ease-in;
-            -o-transition: all 0.1s ease-in;
-            transition: all 0.1s ease-in;
-            border: 1px solid theme-var($--theme-dropdown-border);
-
-            &:hover {
-                background-color: theme-var($--theme-dropdown-hover);
-            }
-
-            &.active {
-                .button {
-                    img {
-                        transform: rotate(180deg);
-                    }
-                }
-            }
-
-            .title {
-                font-size: 10px;
-                padding-right: 10px;
-                color: theme-var($--theme-gray-text);
-            }
-
-            .selected-value {
-                flex-grow: 1;
-                font-size: 14px;
-            }
-
-            .button {
-                display: flex;
-                img {
-                    width: 12px;
-
-                    -moz-transition: all .5s ease;
-                    -webkit-transition: all .5s ease;
-                    -o-transition: all .5s ease;
-                    transition: all .5s ease;
-                }
-            }
-        }
-
-        .select-options {
-            cursor: pointer;
-            position: absolute;
-            transition: all 0.5s ease;
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-            
-            font-size: 12px;
-
-            width: 98%;
-            left: 0;
-            right: 0;
-            margin:auto;
-            margin-top: 2px;
-            border-radius: 4px;
-            background-color: theme-var($--theme-dropdown-background);
-            border: 1px solid theme-var($--theme-dropdown-border);
-
-
-
-            &.active {
-                opacity: 1;
-                visibility: visible;
-                pointer-events: auto;
-            }
-
-
-            .option {
-                display: block;
-                padding: 5px 10px;
-                text-align: center;
-                border-bottom: 1px solid theme-var($--theme-dropdown-border);
-                &:hover {
-                    background-color: theme-var($--theme-dropdown-hover);
-                }
-                &:last-child {
-                    border-bottom: unset;
-                }
-            }
-        }
-    }
 }
 
 .add-notebook {
