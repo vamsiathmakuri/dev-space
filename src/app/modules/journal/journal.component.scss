@@ -79,7 +79,7 @@
 
 
       &.active {
-        background-color: theme-var($--theme-menu-item-active);
+        background-color: theme-var($--theme-journal-date-active);
         border: solid 2px theme-var($--theme-menu-item-active-border);
         padding: 8px 14px;
       }

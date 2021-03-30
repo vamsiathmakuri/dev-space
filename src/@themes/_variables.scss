@@ -19,6 +19,9 @@ $--theme-dropdown-hover: --theme-dropdown-hover;
 // Notes
 $--theme-notes-nav-background: --theme-notes-nav-background;
 
+// Journal
+$--theme-journal-date-active: --theme-journal-date-active;
+
 
 
 // Default theme
@@ -29,13 +32,15 @@ $theme-map-light: (
     $--theme-text: #202020,
     $--theme-gray-text: #5e5e5e,
     $--theme-menu-background: #fffffe,
-    $--theme-menu-item-active: #202020,
+    $--theme-menu-item-active: #423c3c,
     $--theme-menu-item-active-border: #01adfd,
     $--theme-dropdown-background: #fffffe,
     $--theme-dropdown-border: #202020,
     $--theme-dropdown-hover: #979797,
     $--theme-notes-nav-background: #fffffe,
     $--theme-background: #fffffe,
+
+    $--theme-journal-date-active: #dfdfdf,
 );
 
 // Override the default light theme
@@ -43,7 +48,7 @@ $theme-map-dark: (
     $--theme-primary: #f34c84,
     $--theme-secondary: #d75893,
     $--theme-toggle: #dddddd,
-    $--theme-text: #ffffff,
+    $--theme-text: #dddddd,
     $--theme-gray-text: #7c7c7c,
     $--theme-menu-background: #333333,
     $--theme-menu-item-active: #535353,
@@ -53,4 +58,6 @@ $theme-map-dark: (
     $--theme-dropdown-hover: #272727,
     $--theme-notes-nav-background: #1e1e1e,
     $--theme-background: #1e1e1e,
+
+    $--theme-journal-date-active: #535353,
 );

@@ -75,7 +75,7 @@
         .main-notebook {
             cursor: pointer;
             display: flex;
-            padding: 5px 20px 5px 0;
+            padding: 5px 20px 5px 4px;
             align-items: center;
             font-size: 14px;
             &:hover {
@@ -97,7 +97,8 @@
         
         &.active {
             .main-notebook {
-                border-radius: 3px;
+                border-top-left-radius: 3px;
+                border-bottom-left-radius: 3px;
                 background-color: theme-var($--theme-dropdown-hover);
             }
 
@@ -114,13 +115,14 @@
             .item {
                 cursor: pointer;
                 display: flex;
-                padding: 3px;
+                padding: 5px 5px;
                 justify-items: center;
                 font-size: 12px;
                 margin-bottom: 2px;
 
-                &.active {
-                    border-radius: 3px;
+                &.active {    
+                    border-top-left-radius: 3px;
+                    border-bottom-left-radius: 3px;
                     background-color: theme-var($--theme-dropdown-hover);
                 }
                 

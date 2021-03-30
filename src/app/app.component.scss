@@ -60,7 +60,28 @@
         }
     }
     .main-body {
-        width: 100%;
+        flex-grow: 1;
         padding-left: 10px;
+    }
+
+    .mobile-note {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .main-container {
+        .main-body {
+            display: none;
+        }
+
+        .mobile-note {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+            padding-left: 10px;
+        }
     }
 }
