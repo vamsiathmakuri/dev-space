@@ -7,15 +7,11 @@ import { Router } from '@angular/router';
     styleUrls: ['notes.component.scss']
 })
 export class NotesComponent implements OnInit {
-    temp: boolean = true;
-    code: string = 'while (true) {\n\n}';
-
     constructor(private router: Router) { }
 
     ngOnInit() { }
 
     navigationEvent({ BookID, PageID }: { BookID: number, PageID: number }) {
-
         if (PageID && BookID) {
             this.router.navigate(['notes','page'], { queryParams: { PageID: PageID, BookID: BookID } });
         } else if (BookID) {
