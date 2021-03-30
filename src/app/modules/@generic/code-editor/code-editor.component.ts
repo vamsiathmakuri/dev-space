@@ -1,5 +1,5 @@
-/// <reference path="../../../../../../node_modules/monaco-editor/monaco.d.ts" />
-import { Component, Input, AfterViewInit, ElementRef, ViewChild, NgZone, Output, EventEmitter, OnChanges } from '@angular/core';
+/// <reference path="../../../../../node_modules/monaco-editor/monaco.d.ts" />
+import { Component, Input, AfterViewInit, ElementRef, ViewChild, NgZone, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 
 
 
@@ -8,27 +8,35 @@ let loadPromise: Promise<void>;
 
 @Component({
   selector: 'app-monaco-editor',
-  templateUrl: './sample.component.html',
-  styleUrls: ['./sample.component.scss']
+  templateUrl: './code-editor.component.html',
+  styleUrls: ['./code-editor.component.scss']
 })
-export class SampleComponent implements AfterViewInit, OnChanges {
+export class CodeEditorComponent implements AfterViewInit, OnChanges {
 
   @ViewChild('editorContainer') _editorContainer: ElementRef | undefined;
 
   @Input() code: string = '';
+  @Input() language: string = '';
   @Output() codeChange = new EventEmitter<string>();
 
-  Languages = ['abap', 'aes', 'apex', 'azcli', 'bat', 'c', 'cameligo', 'clojure', 'coffeescript', 'cpp', 'csharp', 'csp', 'css', 'dart', 'dockerfile', 'ecl', 'fsharp', 'go', 'graphql', 'handlebars', 'hcl', 'html', 'ini', 'java', 'javascript', 'json', 'julia', 'kotlin', 'less', 'lexon', 'lua', 'm3', 'markdown', 'mips', 'msdax', 'mysql', 'objective-c', 'pascal', 'pascaligo', 'perl', 'pgsql', 'php', 'plaintext', 'postiats', 'powerquery', 'powershell', 'pug', 'python', 'r', 'razor', 'redis', 'redshift', 'restructuredtext', 'ruby', 'rust', 'sb', 'scala', 'scheme', 'scss', 'shell', 'sol', 'sql', 'st', 'swift', 'systemverilog', 'tcl', 'twig', 'typescript', 'vb', 'verilog', 'xml', 'yaml' ]
+  Languages = ['abap', 'aes', 'apex', 'azcli', 'bat', 'c', 'cameligo', 'clojure', 'coffeescript', 'cpp', 'csharp', 'csp', 'css', 'dart', 'dockerfile', 'ecl', 'fsharp', 'go', 'graphql', 'handlebars', 'hcl', 'html', 'ini', 'java', 'javascript', 'json', 'julia', 'kotlin', 'less', 'lexon', 'lua', 'm3', 'markdown', 'mips', 'msdax', 'mysql', 'objective-c', 'pascal', 'pascaligo', 'perl', 'pgsql', 'php', 'plaintext', 'postiats', 'powerquery', 'powershell', 'pug', 'python', 'r', 'razor', 'redis', 'redshift', 'restructuredtext', 'ruby', 'rust', 'sb', 'scala', 'scheme', 'scss', 'shell', 'sol', 'sql', 'st', 'swift', 'systemverilog', 'tcl', 'twig', 'typescript', 'vb', 'verilog', 'xml', 'yaml']
 
   // Holds instance of the current code editor
   codeEditorInstance: monaco.editor.IStandaloneCodeEditor | undefined;
 
-  constructor(private zone: NgZone) {}
+  constructor(private zone: NgZone) { }
 
   // supports two-way binding
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
     if (this.codeEditorInstance) {
-      this.codeEditorInstance.setValue(this.code);
+      const editorModel = this.codeEditorInstance.getModel();
+      if(editorModel) {
+        if(changes['code']) {
+          editorModel.setValue(this.code)
+        } else if(changes['language']) {
+          monaco.editor.setModelLanguage(editorModel, this.language || 'javascript');
+        }
+      }
     }
   }
 
@@ -72,7 +80,7 @@ export class SampleComponent implements AfterViewInit, OnChanges {
   initMonaco(): void {
     this.codeEditorInstance = monaco.editor.create(this._editorContainer?.nativeElement, {
       value: this.code,
-      language: 'javascript',
+      language: this.language || 'javascript',
       theme: 'vs-dark'
     });
 
@@ -81,5 +89,4 @@ export class SampleComponent implements AfterViewInit, OnChanges {
       this.codeChange.emit(this.codeEditorInstance?.getValue());
     });
   }
-
 }
