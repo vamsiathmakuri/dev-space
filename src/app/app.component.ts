@@ -1,34 +1,35 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
+import { ThemeService } from 'src/services/theme.service';
+import { Utilities } from 'src/utils/utilities.class';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent extends Utilities implements OnInit {
 
-  constructor(@Inject(DOCUMENT) private document: Document) {}
-  
-  ngOnInit(): void {}
-
-  title: string = 'while';
-
-  changeEvent(code: string) {
-    this.title = code
+  constructor(@Inject(DOCUMENT) private document: Document, private themeService: ThemeService) {
+    super();
   }
 
-  event: any = null;
+  ngOnInit(): void {
+    this.unSubscribeLater(this.themeService.Theme.subscribe(selectedTheme => {
+      let html = this.document.body.closest('html');
+
+      for(let themeName of this.themeService.ThemeList) {
+        html?.classList.remove(themeName);
+      }
+
+      html?.classList.add(selectedTheme);
+    }))
+  }
+
+
 
   toggleTheme() {
-    let html = this.document.body.closest('html');
-    const selectedTheme = html?.classList.contains('dark') ? 'dark' : 'light';
-    html?.classList.remove(selectedTheme);
-    html?.classList.add('theme-transition');
-    html?.classList.add(selectedTheme == 'dark' ? 'light' : 'dark');
-    clearTimeout(this.event);
-    this.event = setTimeout(() => {
-      html?.classList.remove('theme-transition');
-    }, 1200);
+    const newTheme = this.themeService.Theme.value != 'dark' ? 'dark' : 'light';
+    this.themeService.Theme.next(newTheme);
   }
 }

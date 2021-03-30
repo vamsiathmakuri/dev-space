@@ -1,5 +1,7 @@
 /// <reference path="../../../../../node_modules/monaco-editor/monaco.d.ts" />
 import { Component, Input, AfterViewInit, ElementRef, ViewChild, NgZone, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { ThemeService } from 'src/services/theme.service';
+import { Utilities } from 'src/utils/utilities.class';
 
 
 
@@ -11,7 +13,7 @@ let loadPromise: Promise<void>;
   templateUrl: './code-editor.component.html',
   styleUrls: ['./code-editor.component.scss']
 })
-export class CodeEditorComponent implements AfterViewInit, OnChanges {
+export class CodeEditorComponent extends Utilities implements AfterViewInit, OnChanges {
 
   @ViewChild('editorContainer') _editorContainer: ElementRef | undefined;
 
@@ -24,7 +26,9 @@ export class CodeEditorComponent implements AfterViewInit, OnChanges {
   // Holds instance of the current code editor
   codeEditorInstance: monaco.editor.IStandaloneCodeEditor | undefined;
 
-  constructor(private zone: NgZone) { }
+  constructor(private zone: NgZone, private themeService:ThemeService) {
+    super();
+  }
 
   // supports two-way binding
   ngOnChanges(changes: SimpleChanges) {
@@ -77,12 +81,25 @@ export class CodeEditorComponent implements AfterViewInit, OnChanges {
     }
   }
 
+  get currentTheme(): string {
+    switch (this.themeService.Theme.value) {
+      case 'light':
+        return 'vs-light';
+      default:
+        return 'vs-dark';
+    }
+  }
+
   initMonaco(): void {
     this.codeEditorInstance = monaco.editor.create(this._editorContainer?.nativeElement, {
       value: this.code,
       language: this.language || 'javascript',
-      theme: 'vs-dark'
+      theme: this.currentTheme
     });
+
+    this.unSubscribeLater(this.themeService.Theme.subscribe(data => {
+      monaco.editor.setTheme(this.currentTheme);
+    }));
 
     // To support two-way binding of the code
     this.codeEditorInstance?.getModel()?.onDidChangeContent(e => {

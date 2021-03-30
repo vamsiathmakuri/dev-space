@@ -8,8 +8,7 @@
     @include spread-map($theme-map-dark);
 }
 
-:root.theme-transition,
-:root.theme-transition * {
+:root * {
     transition: background-color 1s !important;
     transition-delay: 0s !important;
 }
