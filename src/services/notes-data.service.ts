@@ -68,6 +68,10 @@ export class NotesDataService {
             return store.put(storeData);
         })
             .then(request => this.database.toPromise<number>(request))
+        .then(data => {
+            this.NotebookUpdate.next(data)
+            return data;
+        })
 
         return transaction;
     }

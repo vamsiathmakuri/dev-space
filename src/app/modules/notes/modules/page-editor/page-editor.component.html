@@ -1,39 +1,28 @@
-<!-- <div class="editor">
-    <div class="options"></div>
-    <div class="view-area">
-        <app-monaco-editor [code]="code" *ngIf="true"></app-monaco-editor>
-        <app-text *ngIf="false"></app-text>
-    </div>
-    <div class="toolbar">
-        Details man
-    </div>
-</div> -->
-
 <div class="editor">
     <div class="view-area">
         <div class="options">
-            <input class="notebook" [(ngModel)]="Page.PageName" (ngModelChange)="this.storeNotebook()" type="text">
-            <select [(ngModel)]="Page.PageLanguage">
-                <option value="{{ Page.PageLanguage }}">1</option>
-                <option value="1">2</option>
-                <option value="1">3</option>
-            </select>
+            <input class="notebook" [(ngModel)]="Page.PageName" (ngModelChange)="this.storePage()" type="text">
+            <ng-container *ngIf="Page.PageType === 'Code'">
+                <select [(ngModel)]="Page.PageLanguage" (ngModelChange)="this.storePage()">
+                    <option *ngFor="let item of Languages" [value]="item">{{ item }}</option>
+                </select>
+            </ng-container>
         </div>
         <div class="description">
-            <!-- <app-text-editor [placeholder]="'Insert Description Here ...'" [Data]="Notebook.DescriptionData" (OnContentChange)="saveNotebookDescription($event.html)"></app-text-editor> -->
+            <ng-container *ngIf="Page.PageType === 'Text'">
+                <app-text-editor [placeholder]="'Insert Description Here ...'" [Data]="PageReadOnly.PageData" (OnContentChange)="savePageData($event.html)"></app-text-editor>
+            </ng-container>
+            <ng-container *ngIf="Page.PageType === 'Code'">
+                <app-monaco-editor [code]="PageReadOnly.PageData" [language]="Page.PageLanguage" (codeChange)="savePageData($event)"></app-monaco-editor>
+            </ng-container>
         </div>
     </div>
     <div class="toolbar">
         <div class="toolbar-separator"> </div>
         <div class="toolbar-item">
             <span class="save-spinner">
-                <ng-container *ngIf="NotebookSaveInit">
-                    <div class="loader"></div>
-                    Saving
-                </ng-container>
-                <ng-container *ngIf="!NotebookSaveInit">
-                    Saved
-                </ng-container>
+                <div *ngIf="this.PageSaveInit" class="loader"></div>
+                {{ this.PageSaveInit ? 'Saving' : 'Saved' }}
             </span>
         </div>
         <div class="toolbar-item" title="Last Modified">

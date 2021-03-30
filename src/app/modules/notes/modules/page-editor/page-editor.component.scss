@@ -16,6 +16,7 @@
 
         .options {
             display: flex;
+            align-items: center;
             width: 100%;
             input.notebook {
                 margin: 5px 10px;
@@ -36,6 +37,7 @@
                 width: 150px;
                 height: 25px;
                 background: unset;
+                margin-right: 20px;
                 border: 1px solid $--theme-dropdown-border;
                 background-color: theme-var($--theme-dropdown-background);
                 color: theme-var($--theme-text);
@@ -45,7 +47,7 @@
         
 
         .description {
-            width: 95%;
+            width: 100%;
             flex-grow: 1;
             overflow: auto;
         }
