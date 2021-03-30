@@ -9,6 +9,15 @@ export class DatabaseService {
                 const journals = databaseRequest.result.createObjectStore('journals', { keyPath: 'Date' });
                 // const journalIndex = journals.createIndex('journal_index', 'id');
             }
+
+            if (!databaseRequest.result.objectStoreNames.contains('notebooks')) {
+                const notebooks = databaseRequest.result.createObjectStore('notebooks', { keyPath: 'BookID', autoIncrement: true });
+            }
+
+            if (!databaseRequest.result.objectStoreNames.contains('pages')) {
+                const pages = databaseRequest.result.createObjectStore('pages', { keyPath: 'PageID', autoIncrement: true });
+                const pageBookIndex = pages.createIndex('page_book_index', 'BookID');
+            }
         }
 
         databaseRequest.onerror = () => {

@@ -18,8 +18,9 @@ export abstract class Utilities implements OnDestroy {
     }
 
     // Always Use following helper while making a subscriber to unregister subscribers when component destroys.
-    unSubscribeLater(subscriber: Subscription) {
+    unSubscribeLater(subscriber: Subscription): Subscription {
         this.Subscribers.push(subscriber);
+        return subscriber;
     }
 
     intervals: any = {};

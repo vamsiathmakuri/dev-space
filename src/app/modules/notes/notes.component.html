@@ -1,9 +1,10 @@
 <div class="notes-container">
     <div class="notes-navigation">
-        <notes-navigation></notes-navigation>
+        <notes-navigation (NavigationEvent)="this.navigationEvent($event)"></notes-navigation>
     </div>
     <div class="notes-body">
-        <div class="editor">
+        <router-outlet></router-outlet>
+        <!-- <div class="editor">
             <div class="options"></div>
             <div class="view-area">
                 <app-monaco-editor [code]="code" *ngIf="true"></app-monaco-editor>
@@ -12,6 +13,6 @@
             <div class="toolbar">
                 Details man
             </div>
-        </div>
-    </div>  
+        </div> -->
+    </div>
 </div>

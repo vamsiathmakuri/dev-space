@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SampleComponent } from 'src/app/modules/notes/components/sample-component/sample.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { TextComponent } from './components/text-component/text.component';
 import { QuillModule } from 'ngx-quill'
 import { NotesComponent } from './notes.component';
 
@@ -13,7 +12,14 @@ import { NotesComponent } from './notes.component';
         CommonModule,
         RouterModule.forChild([{
             path: '',
-            component: NotesComponent
+            component: NotesComponent,
+            children: [{
+                path: 'notebook',
+                loadChildren: () => import('./modules/notebook-preview/notebook-preview.module').then(m => m.NotebookPreviewModule)
+            }, {
+                path: 'page', 
+                loadChildren: () => import('./modules/page-editor/page-editor.module').then(m => m.PageEditorModule)
+            }]
         }]),
         QuillModule.forRoot(),
         FormsModule
@@ -22,8 +28,7 @@ import { NotesComponent } from './notes.component';
     declarations: [
         NotesComponent,
         NavigationComponent,
-        SampleComponent,
-        TextComponent
+        SampleComponent
     ],
     providers: [],
 })

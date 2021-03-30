@@ -70,8 +70,9 @@
     padding: 10px 0 10px 10px;
 
     overflow: overlay;
-    .category {
-        .main-category {
+    .notebook {
+        margin-bottom: 3px;
+        .main-notebook {
             cursor: pointer;
             display: flex;
             padding: 5px 20px 5px 0;
@@ -95,6 +96,11 @@
         }
         
         &.active {
+            .main-notebook {
+                border-radius: 3px;
+                background-color: theme-var($--theme-dropdown-hover);
+            }
+
             .sub-items {
                 display: block;
             }
@@ -108,9 +114,15 @@
             .item {
                 cursor: pointer;
                 display: flex;
-                padding: 2px;
+                padding: 3px;
                 justify-items: center;
                 font-size: 12px;
+                margin-bottom: 2px;
+
+                &.active {
+                    border-radius: 3px;
+                    background-color: theme-var($--theme-dropdown-hover);
+                }
                 
                 &:hover {
                     border-radius: 3px;
@@ -121,6 +133,32 @@
                     margin-right: 5px;
                     width: 12px;
                     height: 12px;
+                }
+            }
+
+        }
+        .actions {
+            display: flex;
+            padding: 2px;
+            justify-items: center;
+            font-size: 13px;
+            margin: 5px 0;
+            .create-button {
+                cursor: pointer;
+                padding: 2px 5px;
+                margin-right: 7px;
+                
+                .text {
+                    font-weight: bold;
+                    background: linear-gradient(#12c2e9, #c471ed, #f64f59);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+
+                &:hover {
+                    border-radius: 3px;
+                    background-color: theme-var($--theme-dropdown-hover);
                 }
             }
         }

@@ -8,6 +8,7 @@ import { ContentChange, QuillEditorComponent } from 'ngx-quill';
 })
 
 export class TextEditorComponent implements OnInit, OnChanges {
+    @Input('placeholder') placeholder: string = 'Insert Text Here ...';
 
     modules = {
         toolbar: [

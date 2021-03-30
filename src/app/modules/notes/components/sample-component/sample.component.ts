@@ -1,6 +1,8 @@
 /// <reference path="../../../../../../node_modules/monaco-editor/monaco.d.ts" />
 import { Component, Input, AfterViewInit, ElementRef, ViewChild, NgZone, Output, EventEmitter, OnChanges } from '@angular/core';
 
+
+
 let loadedMonaco = false;
 let loadPromise: Promise<void>;
 
@@ -15,6 +17,8 @@ export class SampleComponent implements AfterViewInit, OnChanges {
 
   @Input() code: string = '';
   @Output() codeChange = new EventEmitter<string>();
+
+  Languages = ['abap', 'aes', 'apex', 'azcli', 'bat', 'c', 'cameligo', 'clojure', 'coffeescript', 'cpp', 'csharp', 'csp', 'css', 'dart', 'dockerfile', 'ecl', 'fsharp', 'go', 'graphql', 'handlebars', 'hcl', 'html', 'ini', 'java', 'javascript', 'json', 'julia', 'kotlin', 'less', 'lexon', 'lua', 'm3', 'markdown', 'mips', 'msdax', 'mysql', 'objective-c', 'pascal', 'pascaligo', 'perl', 'pgsql', 'php', 'plaintext', 'postiats', 'powerquery', 'powershell', 'pug', 'python', 'r', 'razor', 'redis', 'redshift', 'restructuredtext', 'ruby', 'rust', 'sb', 'scala', 'scheme', 'scss', 'shell', 'sol', 'sql', 'st', 'swift', 'systemverilog', 'tcl', 'twig', 'typescript', 'vb', 'verilog', 'xml', 'yaml' ]
 
   // Holds instance of the current code editor
   codeEditorInstance: monaco.editor.IStandaloneCodeEditor | undefined;
