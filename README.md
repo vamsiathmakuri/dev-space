@@ -18,7 +18,6 @@ Developers' 👨🏽‍💻 Journal Application built using Angular 11.
 - `source-map-explorer` : Explore Source Map Viewer for current Production Build
 
 ## Contributors
----
 - [Vamsi Krishna Athmakuri](https://github.com/vamsiathmakuri)
 
 > It all started with building [notepad](https://github.com/gsksivesh/notepad) for web browser.
