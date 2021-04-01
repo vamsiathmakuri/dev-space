@@ -1,1 +1,36 @@
-<h1>Welcome</h1>
+<div class="welcome-component">
+    <div class="welcome-wrapper">
+        <div class="heading">
+            <h1 class="main-heading">Welcome to <span>DevSpace</span> <img src="/assets/programmer.svg" alt="Theme"></h1>
+        </div>
+    
+        <div class="message">
+            <div class="section" [routerLink]="'/notes'" >
+                <img src="/assets/book.svg" alt="Notes">
+                <span class="content">
+                    Create, View or Edit Notebooks <br>
+                    <span class="small">* Supports WYSIWYG and Monaco Code Editor</span>
+                </span>
+            </div>
+            <div class="section" [routerLink]="'/journal'" >
+                <img src="/assets/diary.svg" alt="Diary">
+                <span class="content">
+                    Get Started with Daily Journal
+                </span>
+            </div>
+    
+            <div class="section">
+                <img src="/assets/light-bulb.svg" alt="Theme">
+                <span class="content">
+                    Dark/Light Theme Mode <br>
+                    <span class="small">* Default Dark Mode</span>
+                </span>
+            </div>
+        </div>
+    
+        <div class="footer">
+            <div>Contribute <a href="https://www.flaticon.com/" title="Flaticon">dev-space</a></div>
+            <div>Icons made by <a href="https://www.flaticon.com/authors/iconixar" title="iconixar">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        </div>
+    </div>
+</div>

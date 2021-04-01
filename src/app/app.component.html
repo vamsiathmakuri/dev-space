@@ -1,5 +1,8 @@
 <div class="main-container">
     <div class="navigation">
+        <a [routerLink]="'/'" class="nav-items" title="Welcome Page" [routerLinkActiveOptions]="{ exact: true }" [routerLinkActive]="['active']">
+            <img src="/assets/home.svg" alt="Notes">
+        </a>
         <a [routerLink]="'/notes'" class="nav-items" title="Notes" [routerLinkActive]="['active']">
             <img src="/assets/book.svg" alt="Notes">
         </a>
