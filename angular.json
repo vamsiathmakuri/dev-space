@@ -79,7 +79,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "dev-space:build"
+            "browserTarget": "dev-space:build",
+            "baseHref": "/devspace/"
           },
           "configurations": {
             "production": {
