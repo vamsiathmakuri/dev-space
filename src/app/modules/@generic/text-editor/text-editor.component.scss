@@ -1,0 +1,42 @@
+@import "/src/@themes/variables";
+@import "/src/@themes/mixins";
+
+::ng-deep quill-editor {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .ql-toolbar {
+        border: unset !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        button, .ql-picker>.ql-picker-label {
+            color: theme-var($--theme-text);
+            .ql-stroke {
+                stroke: theme-var($--theme-text);
+            }
+            .ql-fill {
+                fill: theme-var($--theme-text);
+            }
+        }
+
+        .ql-picker-label::before {
+            color: theme-var($--theme-text);
+        }
+    }
+
+    .ql-container {
+        border: unset !important;
+        height: 100%;
+        overflow: auto;
+
+        .ql-editor::before {
+            color: theme-var($--theme-text);
+        }
+
+        .ql-tooltip {
+            left: 10px !important;
+        }
+    }
+}

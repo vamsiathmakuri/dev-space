@@ -1,0 +1,32 @@
+<div class="editor">
+    <div class="view-area">
+        <div class="options">
+            <input class="notebook" [(ngModel)]="Page.PageName" (ngModelChange)="this.storePage()" type="text">
+            <ng-container *ngIf="Page.PageType === 'Code'">
+                <select [(ngModel)]="Page.PageLanguage" (ngModelChange)="this.storePage()">
+                    <option *ngFor="let item of Languages" [value]="item">{{ item }}</option>
+                </select>
+            </ng-container>
+        </div>
+        <div class="description">
+            <ng-container *ngIf="Page.PageType === 'Text'">
+                <app-text-editor [placeholder]="'Insert Description Here ...'" [Data]="PageReadOnly.PageData" (OnContentChange)="savePageData($event.html)"></app-text-editor>
+            </ng-container>
+            <ng-container *ngIf="Page.PageType === 'Code'">
+                <app-monaco-editor [code]="PageReadOnly.PageData" [language]="Page.PageLanguage" (codeChange)="savePageData($event)"></app-monaco-editor>
+            </ng-container>
+        </div>
+    </div>
+    <div class="toolbar">
+        <div class="toolbar-separator"> </div>
+        <div class="toolbar-item">
+            <span class="save-spinner">
+                <div *ngIf="this.PageSaveInit" class="loader"></div>
+                {{ this.PageSaveInit ? 'Saving' : 'Saved' }}
+            </span>
+        </div>
+        <div class="toolbar-item" title="Last Modified">
+            {{ Page.Modified | date:'MMM d, y, h:mm:ss a' }}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="main-container">
+    <div class="navigation">
+        <a [routerLink]="'/'" class="nav-items" title="Welcome Page" [routerLinkActiveOptions]="{ exact: true }" [routerLinkActive]="['active']">
+            <img src="/assets/home.svg" alt="Notes">
+        </a>
+        <a [routerLink]="'/notes'" class="nav-items" title="Notes" [routerLinkActive]="['active']">
+            <img src="/assets/book.svg" alt="Notes">
+        </a>
+        <a [routerLink]="'/journal'" class="nav-items" title="Journal" [routerLinkActive]="['active']">
+            <img src="/assets/diary.svg" alt="Diary">
+        </a>
+        <span class="seperator"></span>
+        <a href='javascript:void(0);' (click)="toggleTheme()" class="button-items theme-toggle" title="Theme">
+            <img src="/assets/light-bulb.svg" alt="Theme">
+        </a>
+    </div>
+    <div class="main-body">
+        <router-outlet></router-outlet>
+    </div>
+    <div class="mobile-note">
+        <h1>
+            Dev Space
+        </h1>
+        <p>
+            This website is not optimised for mobile screens <br>
+        </p>
+        <h2>
+            !!Mobile Version Under Construction!!
+        </h2>
+    </div>
+</div>

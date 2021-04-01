@@ -1,0 +1,7 @@
+::ng-deep .editor-container .rename-box {
+    display: none;
+
+    &[monaco-visible-content-widget] {
+        display: block;
+    }
+}

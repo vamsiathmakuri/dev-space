@@ -1,0 +1,47 @@
+@import "/src/@themes/variables";
+@import "/src/@themes/mixins";
+
+.notes-container {
+    display: flex;
+    height: 100%;
+
+    .notes-navigation {
+        
+        user-select: none;
+        background: theme-var($--theme-notes-nav-background);
+        height: 100%;
+        width: 13%;
+        border-right: 1px solid grey;
+    }
+
+    .notes-body {
+        width: 87%;
+        background: theme-var($--theme-notes-nav-background);
+        
+        .editor {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            .options {
+                height: 5%;
+            }
+            .view-area {
+                height: 93%;
+                ::ng-deep quill-editor {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+
+                    .ql-container {
+                        height: 100%;
+                        overflow: auto;
+                    }
+                }
+            }
+            .toolbar {
+                height: 2%;
+                background: #007acc;
+            }
+        }
+    }
+}

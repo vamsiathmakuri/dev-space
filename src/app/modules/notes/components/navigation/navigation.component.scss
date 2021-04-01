@@ -1,0 +1,168 @@
+@import "/src/@themes/variables";
+@import "/src/@themes/mixins";
+
+.notes-navigation {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+.add-notebook {
+    margin: 10px;
+    .hide {
+        display: none !important;
+    }
+    .notebook-button {
+        cursor: pointer;
+        display: flex;
+        padding: 5px;
+        align-items: center;
+        font-size: 14px;
+        border-radius: 4px;
+
+        &:hover {
+            background-color: theme-var($--theme-dropdown-hover);
+        }
+
+        > svg {
+            margin-right: 5px;
+            width: 17px;
+            height: 17px;
+            fill: theme-var($--theme-text);
+        }
+    }
+
+    .notebook-input {
+        display: flex;
+        align-items: center;
+        padding: 4px;
+        justify-content: center;
+
+        input {
+            background-color: theme-var($--theme-dropdown-background);
+            border: unset;
+            padding: 4px;
+            color: theme-var($--theme-text);
+
+            &:focus {
+                outline: unset;
+            }
+        }
+
+        svg {
+            cursor: pointer;
+            background-color: theme-var($--theme-dropdown-background);
+            border-radius: 4px;
+            fill: theme-var($--theme-text);
+            height: 13px;
+            width: 13px;
+            padding: 5px;
+            margin-left: 8px;
+        }
+    }
+
+
+}
+
+
+.notes-listing {
+    flex-grow: 1;
+    padding: 10px 0 10px 10px;
+
+    overflow: overlay;
+    .notebook {
+        margin-bottom: 3px;
+        .main-notebook {
+            cursor: pointer;
+            display: flex;
+            padding: 5px 20px 5px 4px;
+            align-items: center;
+            font-size: 14px;
+            &:hover {
+                border-radius: 3px;
+                background-color: theme-var($--theme-dropdown-hover);
+            }
+
+            .notebook-name {
+                flex-grow: 1;
+            }
+
+            svg {
+                margin-right: 5px;
+                width: 17px;
+                height: 17px;
+                fill: theme-var($--theme-text);
+            }
+        }
+        
+        &.active {
+            .main-notebook {
+                border-top-left-radius: 3px;
+                border-bottom-left-radius: 3px;
+                background-color: theme-var($--theme-dropdown-hover);
+            }
+
+            .sub-items {
+                display: block;
+            }
+        }
+
+        .sub-items {
+            padding-left: 30px;
+            display: none;
+            transition: all 0.5s ease;
+
+            .item {
+                cursor: pointer;
+                display: flex;
+                padding: 5px 5px;
+                justify-items: center;
+                font-size: 12px;
+                margin-bottom: 2px;
+
+                &.active {    
+                    border-top-left-radius: 3px;
+                    border-bottom-left-radius: 3px;
+                    background-color: theme-var($--theme-dropdown-hover);
+                }
+                
+                &:hover {
+                    border-radius: 3px;
+                    background-color: theme-var($--theme-dropdown-hover);
+                }
+
+                svg {
+                    margin-right: 5px;
+                    width: 12px;
+                    height: 12px;
+                }
+            }
+
+        }
+        .actions {
+            display: flex;
+            padding: 2px;
+            justify-items: center;
+            font-size: 13px;
+            margin: 5px 0;
+            .create-button {
+                cursor: pointer;
+                padding: 2px 5px;
+                margin-right: 7px;
+                
+                .text {
+                    font-weight: bold;
+                    background: linear-gradient(#12c2e9, #c471ed, #f64f59);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+
+                &:hover {
+                    border-radius: 3px;
+                    background-color: theme-var($--theme-dropdown-hover);
+                }
+            }
+        }
+    }
+}

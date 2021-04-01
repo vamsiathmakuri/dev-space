@@ -1,0 +1,50 @@
+<div class="notes-navigation">
+    <div class="add-notebook">
+        <div class="notebook-button" [class.hide]="showAddNotebookInput" (click)="showInput()">
+            <svg id="Filled" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m432 368-32 16v24 56l32 16 32-16v-56-24z" fill="#88c791"/><path d="m432 256-32 16v24 56l32 16 32-16v-56-24z" fill="#ed6f6d"/><path d="m432 144-32 16v24 56l32 16 32-16v-56-24z" fill="#ffe76c"/><path d="m432 32-32 16v24 56l32 16 32-16v-56-24z" fill="#a3d4f7"/><path d="m80 24a16 16 0 0 0 -16 16v432a16 16 0 0 0 16 16h352v-464z" fill="#fbe9d8"/><path d="m80 24h16a0 0 0 0 1 0 0v464a0 0 0 0 1 0 0h-16a16 16 0 0 1 -16-16v-432a16 16 0 0 1 16-16z" fill="#bfb1a3"/><g fill="#7e8589"><rect height="32" rx="16" width="80" x="48" y="80"/><rect height="32" rx="16" width="80" x="48" y="160"/><rect height="32" rx="16" width="80" x="48" y="240"/><rect height="32" rx="16" width="80" x="48" y="320"/><rect height="32" rx="16" width="80" x="48" y="400"/></g><path d="m40 416a24.039 24.039 0 0 0 16 22.624v33.376a24.027 24.027 0 0 0 24 24h352a8 8 0 0 0 8-8v-3.056l27.578-13.789a8 8 0 0 0 4.422-7.155v-80a8 8 0 0 0 -4.422-7.155l-17.689-8.845 17.689-8.845a8 8 0 0 0 4.422-7.155v-80a8 8 0 0 0 -4.422-7.155l-17.689-8.845 17.689-8.845a8 8 0 0 0 4.422-7.155v-80a8 8 0 0 0 -4.422-7.155l-17.689-8.845 17.689-8.845a8 8 0 0 0 4.422-7.155v-80a8 8 0 0 0 -4.422-7.155l-27.578-13.789v-3.056a8 8 0 0 0 -8-8h-352a24.027 24.027 0 0 0 -24 24v33.376a24 24 0 0 0 0 45.248v34.752a24 24 0 0 0 0 45.248v34.752a24 24 0 0 0 0 45.248v34.752a24 24 0 0 0 0 45.248v34.752a24.039 24.039 0 0 0 -16 22.624zm48-56v32h-16v-32zm-24 48h48a8 8 0 0 1 0 16h-48a8 8 0 0 1 0-16zm8 64v-32h16v40h-8a8.009 8.009 0 0 1 -8-8zm384-12.944-16 8v-86.112l16 8zm0-112-16 8v-86.112l16 8zm0-112-16 8v-86.112l16 8zm0-182.112v70.112l-16 8v-86.112zm-32-20.944v448h-320v-40h8a24 24 0 0 0 0-48h-8v-32h8a24 24 0 0 0 0-48h-8v-32h8a24 24 0 0 0 0-48h-8v-32h8a24 24 0 0 0 0-48h-8v-32h8a24 24 0 0 0 0-48h-8v-40zm-336 248v32h-16v-32zm0-80v32h-16v-32zm0-80v32h-16v-32zm-8-88h8v40h-16v-32a8.009 8.009 0 0 1 8-8zm-16 56h48a8 8 0 0 1 0 16h-48a8 8 0 0 1 0-16zm0 80h48a8 8 0 0 1 0 16h-48a8 8 0 0 1 0-16zm0 80h48a8 8 0 0 1 0 16h-48a8 8 0 0 1 0-16zm0 80h48a8 8 0 0 1 0 16h-48a8 8 0 0 1 0-16z"/><path d="m384 72h-224a8 8 0 0 1 0-16h224a8 8 0 0 1 0 16z"/><path d="m384 104h-224a8 8 0 0 1 0-16h224a8 8 0 0 1 0 16z"/><path d="m384 136h-224a8 8 0 0 1 0-16h224a8 8 0 0 1 0 16z"/><path d="m384 168h-224a8 8 0 0 1 0-16h224a8 8 0 0 1 0 16z"/><path d="m384 200h-224a8 8 0 0 1 0-16h224a8 8 0 0 1 0 16z"/><path d="m384 232h-224a8 8 0 0 1 0-16h224a8 8 0 0 1 0 16z"/><path d="m384 264h-224a8 8 0 0 1 0-16h224a8 8 0 0 1 0 16z"/><path d="m384 296h-224a8 8 0 0 1 0-16h224a8 8 0 0 1 0 16z"/><path d="m384 328h-224a8 8 0 0 1 0-16h224a8 8 0 0 1 0 16z"/><path d="m384 360h-224a8 8 0 0 1 0-16h224a8 8 0 0 1 0 16z"/><path d="m384 392h-224a8 8 0 0 1 0-16h224a8 8 0 0 1 0 16z"/><path d="m384 424h-224a8 8 0 0 1 0-16h224a8 8 0 0 1 0 16z"/><path d="m384 456h-224a8 8 0 0 1 0-16h224a8 8 0 0 1 0 16z"/></svg>
+            <span>
+                Add Notebook
+            </span>
+        </div>
+        <div class="notebook-input" [class.hide]="!showAddNotebookInput">
+            <input type="text" [(ngModel)]="newNotebookName" #addNote>
+            <svg (click)="createNewNotebook()" xmlns="http://www.w3.org/2000/svg" height="426.66667pt" viewBox="0 0 426.66667 426.66667" width="426.66667pt"><path d="m405.332031 192h-170.664062v-170.667969c0-11.773437-9.558594-21.332031-21.335938-21.332031-11.773437 0-21.332031 9.558594-21.332031 21.332031v170.667969h-170.667969c-11.773437 0-21.332031 9.558594-21.332031 21.332031 0 11.777344 9.558594 21.335938 21.332031 21.335938h170.667969v170.664062c0 11.777344 9.558594 21.335938 21.332031 21.335938 11.777344 0 21.335938-9.558594 21.335938-21.335938v-170.664062h170.664062c11.777344 0 21.335938-9.558594 21.335938-21.335938 0-11.773437-9.558594-21.332031-21.335938-21.332031zm0 0"/></svg>
+        </div>
+    </div>
+
+    <div class="notes-listing">
+        <div class="empty-message" *ngIf="Notebooks.length === 0">
+            Create a Notebook to begin
+        </div>
+        <div class="notebook" [class.active]='notebook.BookID == this.SelectedNotebook' *ngFor="let notebook of Notebooks">
+            <div class="main-notebook" (click)="this.selectNotebook(notebook.BookID); this.triggerEvent()">
+                <svg id="Outline" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg"><path d="m56 40v432a24.028 24.028 0 0 0 24 24h320a40.045 40.045 0 0 0 40-40v-161.376a24.038 24.038 0 0 0 16-22.624v-32a24.038 24.038 0 0 0 -16-22.624v-161.376a40.045 40.045 0 0 0 -40-40h-320a24.028 24.028 0 0 0 -24 24zm384 232a8.009 8.009 0 0 1 -8 8h-72v-48h72a8.009 8.009 0 0 1 8 8zm-112-240h48v136l-19.2-14.4a8 8 0 0 0 -9.6 0l-19.2 14.4zm-224 0h208v152a8 8 0 0 0 12.8 6.4l27.2-20.4 27.2 20.4a8 8 0 0 0 12.8-6.4v-152h8a24.028 24.028 0 0 1 24 24v160h-104a8 8 0 0 0 -8 8v64a8 8 0 0 0 8 8h104v160a24.028 24.028 0 0 1 -24 24h-296zm224 248v-48h16v48zm-256-240a8.009 8.009 0 0 1 8-8h8v448h-8a8.009 8.009 0 0 1 -8-8z"/><circle cx="416" cy="256" r="8"/><path d="m272 64h-128a8 8 0 0 0 0 16h128a8 8 0 0 0 0-16z"/><path d="m272 96h-128a8 8 0 0 0 0 16h128a8 8 0 0 0 0-16z"/><path d="m272 128h-128a8 8 0 0 0 0 16h128a8 8 0 0 0 0-16z"/></svg>
+                <span class="notebook-name">
+                    {{ notebook.BookName }}
+                </span>
+            </div>
+            <div class="sub-items" *ngIf="notebook.BookID == this.SelectedNotebook">
+                <div class="actions">
+                    <div class="create-button" (click)="createPage('Code', 'markdown')">
+                        <span class="text">
+                            .md
+                        </span>
+                    </div>
+                    <div class="create-button" (click)="createPage('Code', 'javascript')">
+                        <span class="text">
+                            code
+                        </span>
+                    </div>
+                    <div class="create-button" (click)="createPage('Text')">
+                        <span class="text">
+                            text
+                        </span>
+                    </div>
+                </div>
+                <div class="item" [class.active]="this.SelectedPage == page.PageID" *ngFor="let page of NotebookPages" (click)="this.selectPage(notebook.BookID, page.PageID); this.triggerEvent()">
+                    ⊢ {{ page.PageName }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

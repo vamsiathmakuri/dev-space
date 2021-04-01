@@ -1,0 +1,25 @@
+<div class="editor">
+    <div class="view-area">
+        <input class="notebook" [(ngModel)]="Notebook.BookName" (ngModelChange)="this.storeNotebook()" type="text">
+        <div class="description">
+            <app-text-editor [placeholder]="'Insert Description Here ...'" [Data]="Notebook.DescriptionData" (OnContentChange)="saveNotebookDescription($event.html)"></app-text-editor>
+        </div>
+    </div>
+    <div class="toolbar">
+        <div class="toolbar-separator"> </div>
+        <div class="toolbar-item">
+            <span class="save-spinner">
+                <ng-container *ngIf="NotebookSaveInit">
+                    <div class="loader"></div>
+                    Saving
+                </ng-container>
+                <ng-container *ngIf="!NotebookSaveInit">
+                    Saved
+                </ng-container>
+            </span>
+        </div>
+        <div class="toolbar-item" title="Last Modified">
+            {{ Notebook.Modified | date:'MMM d, y, h:mm:ss a' }}
+        </div>
+    </div>
+</div>
