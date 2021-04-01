@@ -1,28 +1,24 @@
-# Dev Space
+# <img src="./src/assets/programmer.svg" alt="icon" width="25"/> Dev Space 
+Developers' 👨🏽‍💻 Journal Application built using Angular 11.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
+## Features
+- Notebooks
+  - Code Editor Support using `monaco-editor`
+  - HTML/RichText Editor using `quill-js`
+- Daily Journal
+- Theming
 
-## Development server
+### Theme Variables : [File](./src/@themes/_variables.scss)
+- `dark`
+- `light`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### NPM Scripts
+- `start` : Serve Angular
+- `build` : Build Angular Project for Github Build Workflow
+- `source-map-explorer` : Explore Source Map Viewer for current Production Build
 
-## Code scaffolding
+## Contributors
+---
+- [Vamsi Krishna Athmakuri](https://github.com/vamsiathmakuri)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-https://www.flaticon.com/authors/iconixar
+> It all started with building [notepad](https://github.com/gsksivesh/notepad) for web browser.
