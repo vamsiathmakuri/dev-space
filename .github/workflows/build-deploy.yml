@@ -22,6 +22,6 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        repository-name: devspace 
+        REPOSITORY_NAME: devspace 
         BRANCH: gh-pages
         FOLDER: dist
