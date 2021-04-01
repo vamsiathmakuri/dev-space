@@ -10,26 +10,13 @@ import { Utilities } from 'src/utils/utilities.class';
 })
 export class AppComponent extends Utilities implements OnInit {
 
-  constructor(@Inject(DOCUMENT) private document: Document, private themeService: ThemeService) {
+  constructor(private themeService: ThemeService) {
     super();
   }
 
-  ngOnInit(): void {
-    this.unSubscribeLater(this.themeService.Theme.subscribe(selectedTheme => {
-      let html = this.document.body.closest('html');
-
-      for(let themeName of this.themeService.ThemeList) {
-        html?.classList.remove(themeName);
-      }
-
-      html?.classList.add(selectedTheme);
-    }))
-  }
-
-
+  ngOnInit(): void {}
 
   toggleTheme() {
-    const newTheme = this.themeService.Theme.value != 'dark' ? 'dark' : 'light';
-    this.themeService.Theme.next(newTheme);
+    this.themeService.toggleTheme()    
   }
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { DatabaseService } from 'src/services/database.service';
+import { SettingsService } from 'src/services/settings.service';
 import { ThemeService } from 'src/services/theme.service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,7 +19,8 @@ import { PipesModule } from './modules/@generic/pipes/pipes.module';
   ],
   providers: [
     ThemeService,
-    DatabaseService
+    DatabaseService,
+    SettingsService
   ],
   bootstrap: [AppComponent]
 })

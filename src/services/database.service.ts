@@ -14,6 +14,10 @@ export class DatabaseService {
                 const notebooks = databaseRequest.result.createObjectStore('notebooks', { keyPath: 'BookID', autoIncrement: true });
             }
 
+            if (!databaseRequest.result.objectStoreNames.contains('settings')) {
+                const settings = databaseRequest.result.createObjectStore('settings', { keyPath: 'Option' });
+            }
+
             if (!databaseRequest.result.objectStoreNames.contains('pages')) {
                 const pages = databaseRequest.result.createObjectStore('pages', { keyPath: 'PageID', autoIncrement: true });
                 const pageBookIndex = pages.createIndex('page_book_index', 'BookID');
