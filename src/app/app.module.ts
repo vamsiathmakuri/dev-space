@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { JournalDataService } from 'src/services/journal-data.service';
-import { NotesDataService } from 'src/services/notes-data.service';
+import { DatabaseService } from 'src/services/database.service';
 import { ThemeService } from 'src/services/theme.service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,9 +17,8 @@ import { PipesModule } from './modules/@generic/pipes/pipes.module';
     PipesModule
   ],
   providers: [
-    JournalDataService,
-    NotesDataService,
-    ThemeService
+    ThemeService,
+    DatabaseService
   ],
   bootstrap: [AppComponent]
 })

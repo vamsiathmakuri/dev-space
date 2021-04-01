@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { QuillModule } from 'ngx-quill'
 import { NotesComponent } from './notes.component';
+import { NotesDataService } from 'src/services/notes-data.service';
 
 @NgModule({
     imports: [
@@ -28,6 +29,8 @@ import { NotesComponent } from './notes.component';
         NotesComponent,
         NavigationComponent
     ],
-    providers: [],
+    providers: [
+        NotesDataService
+    ],
 })
 export class NotesModule { }
