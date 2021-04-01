@@ -4,11 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "npx ng build --prod --output-path dist --base-href /dev-space/ --source-map",
-    "source-map-explorer": "ng build --prod --source-map && npx source-map-explorer dist/dev-space/*.js",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "build": "npx ng build --prod --output-path dist --base-href /devspace/",
+    "source-map-explorer": "ng build --prod --source-map && npx source-map-explorer dist/dev-space/*.js"
   },
   "private": true,
   "dependencies": {
